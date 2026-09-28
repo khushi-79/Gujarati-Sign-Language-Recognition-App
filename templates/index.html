@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gujarati Sign Language Recognition</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+
+    <h1>Gujarati Sign Language Recognition</h1>
+    <p>Upload an image of your hand sign to predict the character</p>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        <img src="{{ filepath }}" alt="Uploaded Image" width="300">
+    {% endif %}
+
+</body>
+</html>
